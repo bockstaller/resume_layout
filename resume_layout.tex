@@ -1,0 +1,252 @@
+% This template is based upon this https://tex.stackexchange.com/a/307780 Stackoverflow question and adapted for my needs.
+% I distribute this work under the CC-BY-SA license as regulated by this https://meta.stackexchange.com/q/271080 Stackoverflow post. 
+
+\documentclass[a4paper,english,ngerman]{scrartcl}
+  
+\usepackage[nochapters]{classicthesis} % Use the classicthesis style for the style of the document
+\usepackage[LabelsAligned]{currvita}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{here}
+\usepackage[pdftex]{graphicx}
+\usepackage[absolute]{textpos}
+\usepackage[top=45pt,bottom=55pt, left=5cm, right=3cm]{geometry}
+\usepackage{babel}
+
+%Schrift:
+\usepackage{utopia}
+
+% Setup for the Name
+\renewcommand{\cvheadingfont}{\LARGE\color{Blue}} % Font color of your name at the top
+
+% Left margin used for section headings
+\reversemarginpar % Move the margin to the left of the page
+\newcommand{\MarginText}[1]{\marginpar{\raggedleft\itshape\small#1}} % New command defining the margin text style
+
+% Set the width of the date box in each block
+\newlength{\datebox}\settowidth{\datebox}{10.2011 - 06.2012} 
+
+% Setup for the leading information block
+% usage of \Data is demonstrated later
+% change spacing and font sizes here: #1 is the left margin, #2 is the italic date field and #3 is the position/employer/location field
+\newcommand{\Data}[3]{\noindent\hangindent=0em\hangafter=0 \parbox{\datebox}{\normalsize\textit{#1}}\hspace{0.5em} #2 \hspace{0.5em}#3 
+% Add some white space after each new entry
+\vspace{0.2em}} 
+
+% Setup for the data entries
+% usage of \NewEntry is demonstrated later
+% change spacing and font sizes here: #1 is the left margin, #2 is the italic date field and #3 is the position/employer/location field$  $
+\newcommand{\NewEntry}[3]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small \textit{#1}}\hspace{0.5em} #2 #3 
+% Add some white space after each new entry
+\vspace{0em}} 
+
+% Setup for the description settings
+% usage of \Description is demonstrated later
+% change spacing and font sizes here
+\newcommand{\Description}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\footnotesize{#1}\par\normalsize\vspace{0.5em}} 
+
+% Setup for the \itemize environment
+\newlength\docparskip
+\setlength{\docparskip}{\parskip}
+\setlist{nosep, itemsep=-1em, parsep=0em, topsep=0em, partopsep=0em, before={\parskip=0em}, after=\vspace{-\docparskip}}%
+
+
+\begin{document}
+    \thispagestyle{empty}
+
+    % Include your picture here
+    \begin{textblock}{80}(10.5,1.455) %(Position horizontal, Position vertikal)
+    %\includegraphics[width=40mm]{./Bewerbungsfoto}
+    \end{textblock}
+
+    % Enter your name here
+    \begin{cv}{
+        \spacedallcaps{Harry Potter}}
+        \vspace{1em}
+
+        % Personal information
+        % ====================
+
+            % Heading personal information
+            \noindent 
+            \textcolor{Blue}{
+                \textbf{
+                    \Large{
+                        \spacedlowsmallcaps{Personal information}
+                    }
+                }
+            } 
+            \vspace{1em}
+
+            % \Data{Description or Summary}{Value}{}
+            \Data{Adress}{Under the staircase
+
+                        \hspace{2.7cm} 4 Privet Drive 
+                        
+                        \hspace{2.7cm} Little Whinging 
+
+                        \hspace{2.7cm} Surrey, England}{}
+
+            \Data{E-Mail}{hedwig@gmail.com}{}
+
+            \Data{Mobile phone}{+1234824984}{}
+
+            \Data{Birthdate}{31.07.1980}{}
+
+            \Data{Place of birth}{Godric's Hollow}{}\\
+
+            \vspace{2em}
+
+        % Job experience
+        % ====================
+            \noindent 
+            \textcolor{Blue}{
+                \textbf{
+                    \Large{
+                        \spacedlowsmallcaps{Occupational carrer}
+                    }
+                }
+            } 
+            \vspace{1em}
+
+
+            % Job 1
+            % --------------------
+            % \NewEndtry{Specify timerange}{\textsc{Job role} \newline Company}
+            \NewEntry{10.2000 - ongoing}{\textsc{Auror} \newline Ministry of Magic, London} 
+
+            \Description{
+                \MarginText{Ministry of Magic}
+                \begin{itemize}
+                    \item Established best practices to catch poachers of wild dragons.\newline
+                    \item Managed mischief.\newline
+                \end{itemize}
+            }
+
+            % Job 2
+            % --------------------
+            % \NewEndtry{Specify timerange}{\textsc{Job role} \newline Company}
+            %\NewEntry{10.2000 - ongoing}{\textsc{Auror} \newline Ministry of Magic, London} 
+
+            %\Description{
+            %    \MarginText{Ministry of Magic}
+            %    \begin{itemize}
+            %        \item Established best practices to catch poachers of wild dragons.\newline
+            %        \item Managed mischief.\newline
+            %    \end{itemize}
+            %}
+
+            \vspace{2em}
+
+
+        % Education
+        % ====================
+        \noindent 
+        \textcolor{Blue}{
+            \textbf{
+                \Large{
+                    \spacedlowsmallcaps{Education}
+                }
+            }
+        } 
+        \vspace{1em}
+
+
+            % Education 1
+            % --------------------
+            % \NewEndtry{Specify timerange}{\textsc{Job role} \newline Company}
+            \NewEntry{09.1991 - 05.1998}{\textsc{Student} \newline Hogwarts} 
+
+            \Description{
+                \MarginText{Hogwarts}Bellow average student\newline
+            }
+
+            % Education 2
+            % --------------------
+            % \NewEndtry{Specify timerange}{\textsc{Job role} \newline Company}
+            %\NewEntry{10.2000 - ongoing}{\textsc{Auror} \newline Ministry of Magic, London} 
+
+            %\Description{
+            %    \MarginText{Ministry of Magic}
+            %    \begin{itemize}
+            %        \item Established best practices to catch poachers of wild dragons.\newline
+            %        \item Managed mischief.\newline
+            %    \end{itemize}
+            %}
+
+            \vspace{2em}
+
+        % Additional Achievments
+        % ====================
+        \noindent 
+        \textcolor{Blue}{
+            \textbf{
+                \Large{
+                    \spacedlowsmallcaps{Additional Achievments}
+                }
+            }
+        } 
+        \vspace{1em}
+
+
+            % Additional Achievment 1
+            % --------------------
+            % \NewEndtry{Specify timerange}{\textsc{Job role} \newline Company}
+            \NewEntry{02.05.1998}{\textsc{Student} \newline Hogwarts} 
+
+            \Description{
+                \MarginText{Hogwarts}Responsible for the death of Lord Voldemort.
+            }
+
+            % Additional Achievment 2
+            % --------------------
+            % \NewEndtry{Specify timerange}{\textsc{Job role} \newline Company}
+            \NewEntry{24.06.1994}{\textsc{Student} \newline Hogwarts} 
+
+            \Description{
+                \MarginText{Hogwarts}Won the trimagic tournament without even entering.
+            }
+
+            \vspace{2em}
+
+
+        % Languages
+        % ====================
+        \noindent 
+        \textcolor{Blue}{
+            \textbf{
+                \Large{
+                    \spacedlowsmallcaps{Languages}
+                }
+            }
+        } 
+        \vspace{1em}
+
+
+        \newlength{\langbox} % Create a new length for the length of languages to keep them equaly spaced
+        \settowidth{\langbox}{Parcel tongue} % Length equals the length of "English" - if you have a longer language in your list put it here
+
+        \Description{
+            \MarginText{Languages}
+            \parbox{\langbox}
+            {English}\ \ $\cdotp$\ \ \ first language}
+
+        \Description{
+            \parbox{\langbox}
+            {Parcel tongue}\ \ $\cdotp$\ \ \ Basilisk certified}
+
+        \vspace{3em} 
+
+        % Include signature
+        %\includegraphics[width=40mm]{SignatureHarryPotter.jpg}\\[-1\baselineskip]
+
+        Harry Potter
+        \date{\today}
+
+
+    \end{cv}
+
+\end{document}
